@@ -23,7 +23,13 @@ export const userReducer = createReducer(
     (state: UserState, {user}) =>
       ({...state,
         users: [...state.users, user]
-      }))
+    })),
+
+    on(UserActions.removeUser,
+      (state, { user }) =>
+      ({...state,
+      users: state.users.filter(x => x.name !== user.name),
+    })),
 );
 
 export function reducer(state: UserState | undefined, action: Action): any {

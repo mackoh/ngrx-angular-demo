@@ -1,5 +1,5 @@
 <div *ngFor="let user of users$ | async; let i=index">
-  <span >{{ i+1 }}.</span> {{ user.name }}
+  <span >{{ i+1 }}.</span> {{ user.name }} <span class="remove" (click)="removeUser(user.name)">x</span>
 </div>
 <br>
 
